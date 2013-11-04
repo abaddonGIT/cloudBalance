@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <script type="text/javascript" src="../js/options.js"></script>
+        <link rel="stylesheet" type="text/css" href="../css/options.css"/>
+        <title>Настройки cloudBalance</title>
+    </head>
+    <body>
+        <div id="wrapper">
+            <h1>Настройки Cloud Balance</h1>
+            <form action="#" method="post">
+                <fieldset>
+                    <legend>Укажите тип облака:</legend>
+                    <select name="cloud">
+                        <option value="">Нет</option>
+                        <option value="1">Selectel</option>
+                    </select>
+                </fieldset>
+                <fieldset id="selectel">
+                    <legend>Данные авторизации на облаке:</legend>
+                    <input type="text" name="contract" value="" placeholder="Номер договора" />
+                    <input type="password" name="password" value="" placeholder="Пароль" />
+                </fieldset>
+                <fieldset>
+                    <legend>Уведомления</legend>
+                    <input type="text" value="" placeholder="Ценовая граница" />
+                    <input type="text" value="" placeholder="Частота опроса в сек." />
+                </fieldset>
+            </form>
+        </div>
+    </body>
+</html>
