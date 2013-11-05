@@ -1,7 +1,9 @@
+/******************************************************
+ * Copyright 2013 by Abaddon <abaddongit@gmail.com>
+ * @author Abaddon <abaddongit@gmail.com>
+ * @version 1.0.0
+ * ***************************************************/
 var w = window;
-
-console.log(localStorage['options']);
-
 var Balance = function () {
     this.config = {
         1: {
