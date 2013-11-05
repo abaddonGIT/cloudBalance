@@ -9,12 +9,12 @@
     <body>
         <div id="wrapper">
             <h1>Настройки Cloud Balance</h1>
-            <form action="#" method="post">
+            <form action="#" method="post" id="optionsForm">
                 <fieldset>
                     <legend>Укажите тип облака:</legend>
                     <select name="cloud">
                         <option value="">Нет</option>
-                        <option value="1">Selectel</option>
+                        <option value="1" selected>Selectel</option>
                     </select>
                 </fieldset>
                 <fieldset id="selectel">
@@ -24,9 +24,15 @@
                 </fieldset>
                 <fieldset>
                     <legend>Уведомления</legend>
-                    <input type="text" value="" placeholder="Ценовая граница" />
-                    <input type="text" value="" placeholder="Частота опроса в сек." />
+                    <label>Ценовая граница ниже которой начинают приходить уведомления
+                        <input name="price" type="text" placeholder="Ценовая граница" value="50"/>
+                    </label>
+                    <label>Частота опроса баланса в секундах
+                        <input type="text" name="frequency" value="10" placeholder="Частота опроса в сек." />
+                    </label>
                 </fieldset>
+                <b id="success"></b>
+                <input type="submit" name="save" id="save" value="Сохранить" />
             </form>
         </div>
     </body>

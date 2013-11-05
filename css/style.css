@@ -1,2 +1,11 @@
 body {
+    padding: 0;
+    margin: 0;
+}
+
+#wrapper {
+    padding: 15px;
+    background-color: #0094ff;
+    font-size:  18px;
+    color: #fff;
 }
