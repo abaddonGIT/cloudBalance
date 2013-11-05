@@ -7,7 +7,7 @@ var w = window;
 var Balance = function () {
     this.config = {
         1: {
-            request: 'https://support.selectel.ru/'
+            request: 'https://support.selectel.ru/api/login'
         },
         step: 2
     }
@@ -31,7 +31,7 @@ var Balance = function () {
                 console.log(this.response);
             }
         }
-        xhr.send('action_method=GET&user=' + data.contract + '&pass=' + bal.crypt(data.password, -config.step) + '&tn=f4bf4096fe73518ba2a886609f507e7ff5fb4179');
+        xhr.send('login=' + data.contract + '&password=' + bal.crypt(data.password, -config.step));
     }
 
     var bal = this;
