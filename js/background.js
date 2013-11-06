@@ -17,7 +17,6 @@ var Balance = function () {
     this.init = function () {
         if (localStorage['options'] !== undefined) {
             this.data = JSON.parse(localStorage['options']);
-
             //отправляем запрос
             this.getCookies();
         }
