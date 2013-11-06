@@ -15,9 +15,12 @@ var Balance = function () {
     var config = this.config;
 
     this.init = function () {
-        this.data = JSON.parse(localStorage['options']);
-        //отправляем запрос
-        this.getCookies();
+        if (localStorage['options'] !== undefined) {
+            this.data = JSON.parse(localStorage['options']);
+
+            //отправляем запрос
+            this.getCookies();
+        }
     }
     //авторизация на облаке
     this.getCookies = function () {
