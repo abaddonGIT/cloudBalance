@@ -51,7 +51,7 @@ var Opt = function () {
                     if (this.fields[ln].name === 'cloud') {
                         this.fields[ln].selected = true;
                     } else {
-                        this.fields[ln].value = data[this.fields[ln].name];
+                        this.fields[ln].value = data[this.fields[ln].name] || '';
                     }
                 }
             }
