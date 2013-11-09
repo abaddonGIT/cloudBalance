@@ -125,7 +125,7 @@ var GetBalanceStategyFromSelectel = function () {
                     var allSum = parseInt(response.balance, 10) / 100, cloudBal = parseInt(response.cloud.balance) / 100;
 
                     if (cloudBal < data.price) {//Если ниже заданного порога врубаем уведомления
-                        config['notificationOpt'].message = gb.parseTpl({'allSum': allSum, 'cloudBal': cloudBal, 'predict': response.cloud.predict}, gb.messagesText.balance.message);
+                        config['notificationOpt'].message = gb.parseTpl({ 'allSum': allSum, 'cloudBal': cloudBal, 'predict': response.cloud.predict }, gb.messagesText.balance.message);
                         config['notificationOpt'].title = data.title || gb.messagesText.balance.title;
                         //выводим оповещения
                         gb.showMessage(config['notificationOpt'], cloudBal, 'balance');
@@ -135,11 +135,33 @@ var GetBalanceStategyFromSelectel = function () {
         }
         xhr.send();
     }
-}
-//Наследуем методы для стратегии
+};
 GetBalanceStategyFromSelectel.prototype = Object.create(GetBalanceStrategy.prototype);
 
+//Для Linode
+GetBalanceStrategyFromLinode = function () {
+    console.log('Тут для Linode');
+};
+GetBalanceStrategyFromLinode.prototype = Object.create(GetBalanceStrategy.prototype);
+
 window.onload = function () {
-    var balance = new Balancer(new GetBalanceStategyFromSelectel());
-    balance.start();
+    var typeCloud = localStorage['options'];
+
+    if (typeCloud !== undefined) {
+        typeCloud = JSON.parse(typeCloud);
+
+        switch (parseInt(typeCloud.cloud)) {
+            case 1:
+                var balance = new Balancer(new GetBalanceStategyFromSelectel());
+                balance.start();
+                break;
+            case 2:
+                var balance = new Balancer(new GetBalanceStrategyFromLinode());
+                balance.start();
+            default:
+                throw ("Не указан тип облака!");
+        }
+    } else {
+        throw ("Не сохраненны настройки");
+    }
 }
