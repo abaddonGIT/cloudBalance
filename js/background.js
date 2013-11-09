@@ -129,6 +129,8 @@ var GetBalanceStategyFromSelectel = function () {
                         config['notificationOpt'].title = data.title || gb.messagesText.balance.title;
                         //выводим оповещения
                         gb.showMessage(config['notificationOpt'], cloudBal, 'balance');
+                    } else {
+                        chrome.browserAction.setBadgeText({ "text": cloudBal + '' });
                     }
                 }
             }
